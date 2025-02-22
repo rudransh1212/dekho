@@ -1,0 +1,164 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: pink;
+}
+
+/* Header */
+.heading {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background-color: maroon;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    z-index: 1000;
+}
+
+/* Hamburger Icon */
+.hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 20px;
+    cursor: pointer;
+    position: relative;
+    left: -1403px;
+}
+
+.line {
+    width: 100%;
+    height: 4px;
+    background-color: white;
+    border-radius: 2px;
+}
+
+/* Sidebar */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: -250px; /* Hidden off-screen */
+    width: 250px;
+    height: 100%;
+    background-color: maroon;
+    color: white;
+    transition: left 0.3s ease-in-out;
+    padding-top: 60px;
+    z-index: 999;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    padding: 15px 20px;
+}
+
+.sidebar ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.sidebar ul:nth-of-type(2) {
+    margin-top: 30px;
+}
+
+/* Show Sidebar */
+.sidebar.open {
+    left: 0; /* Sidebar visible */
+}
+
+/* Slideshow Container */
+.slideshow-container {
+    margin-top: 60px; /* Push down below the header */
+    position: relative;
+    width: 60%; /* Reduce width */
+    max-width: 800px; /* Add a max width for responsiveness */
+    height: 85vh; /* Reduce height */
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 80%); /* Adjust diagonal cut */
+    overflow: hidden;
+    background: none;
+    margin-left: auto;
+    margin-right: auto;
+    top: 38px;
+    left: 329px;
+}
+
+.slideshow {
+    display: flex;
+    width: 600%;
+    height: 100%;
+    animation: slide 9s infinite;
+    gap: 0;
+}
+
+.slideshow img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Show the entire image without cropping */
+    object-position: center; /* Center the image */
+    flex: 1 0 16.66%;
+    flex-shrink: 0;
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+
+/* Slideshow Animation */
+@keyframes slide {
+    0% { transform: translateX(0); }
+    16.66% { transform: translateX(-16.66%); }
+    33.33% { transform: translateX(-33.33%); }
+    50% { transform: translateX(-50%); }
+    66.66% { transform: translateX(-66.66%); }
+    83.33% { transform: translateX(-83.33%); }
+    100% { transform: translateX(-100%); }
+}
+
+.content {
+    width: 300px; /* Adjust the width as needed */
+    height: 405px;
+    padding: 10px;
+   
+    border-radius: 5px;
+    overflow: hidden;
+    font-size: 16px;
+    font-family: Arial, sans-serif;
+    position: relative;
+    bottom: 408px;
+    left: 307px;
+}
+
+.content span {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(10px);
+    animation: revealWord 0.5s ease-in-out forwards;
+}
+
+/* Animation for word appearance */
+@keyframes revealWord {
+    0% {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.content p {
+    cursor: pointer;
+}
